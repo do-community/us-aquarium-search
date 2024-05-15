@@ -16,16 +16,17 @@ interface AquariumProps {
 }
 
 
-const Aquariums: React.FC<AquariumProps> = ({ aquariums }) => {
+const AquariumCard: React.FC<AquariumProps> = ({ aquariums }) => {
   return (
     <div>
       <h1>US Aquariums</h1>
       <ul>
         {aquariums.map((aquarium) => (
           <li key={aquarium._id}>
+            <img src={aquarium.image}></img>
             <h2>{aquarium.name}</h2>
             <h3>{aquarium.location}</h3>
-            <img src={aquarium.image}></img>
+            <h4>{aquarium.species_count}</h4>
           </li>
         ))}
       </ul>
@@ -34,7 +35,7 @@ const Aquariums: React.FC<AquariumProps> = ({ aquariums }) => {
 };
 
 
-export default Aquariums;
+export default AquariumCard;
 
 
 export const getServerSideProps: GetServerSideProps = async () => {
