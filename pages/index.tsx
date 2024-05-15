@@ -1,13 +1,23 @@
 import Head from "next/head";
 import clientPromise from "../lib/mongodb";
 import type { InferGetServerSidePropsType, GetServerSideProps } from "next";
+import dynamic from 'next/dynamic'
 
-type ConnectionStatus = {
+type Aquarium = {
+  _id: string;
+  name: string;
+  location: string;
+  species_count: number;
+  image: string;
+};
+
+type IndexProps = {
   isConnected: boolean;
+  aquariums: Aquarium[];
 };
 
 export const getServerSideProps: GetServerSideProps<
-  ConnectionStatus
+  IndexProps
 > = async () => {
   try {
     await clientPromise;
@@ -19,21 +29,34 @@ export const getServerSideProps: GetServerSideProps<
     //
     // Then you can execute queries against your database like so:
     // db.find({}) or any of the MongoDB Node Driver commands
+    const client = await clientPromise;
+    const db = client.db("united-states-aquariums");
+    const aquariums = await db
+      .collection("aquariums")
+      .find({})
+      .limit(30)
+      .toArray();
 
     return {
-      props: { isConnected: true },
+      props: { isConnected: true, aquariums: JSON.parse(JSON.stringify(aquariums)) }
     };
   } catch (e) {
     console.error(e);
     return {
-      props: { isConnected: false },
+      props: { isConnected: false, aquariums: [] },
     };
   }
+
 };
 
+const AquariumCard = dynamic(() => import('../components/AquariumCard/AquariumCard'), {
+  loading: () => <p>Loading...</p>,
+})
+
 export default function Home({
-  isConnected,
+  isConnected, aquariums
 }: InferGetServerSidePropsType<typeof getServerSideProps>) {
+
   return (
     <div className="container">
       <Head>
@@ -46,26 +69,20 @@ export default function Home({
           United States Aquariums
         </h1>
 
-        {/* {isConnected ? (
-          <h2 className="subtitle">You are connected to MongoDB</h2>
-        ) : (
-          <h2 className="subtitle">
-            You are NOT connected to MongoDB. Check the <code>README.md</code>{" "}
-            for instructions.
-          </h2>
-        )} */}
-
-        <p className="description">
-          Search for your favorite aquariums in the United States!
-        </p>
-
         <div className="grid">
+          <AquariumCard aquariums={aquariums} />
+
+
+
+
+
+
         </div>
       </main>
 
       <footer>
         <a
-          href="https://www.digitalocean.com/?utm_team=devrel&utm_source=twitter&utm_content=digitalocean"
+          href="https://www.digitalocean.com/"
           target="_blank"
           rel="noopener noreferrer"
         >
