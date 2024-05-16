@@ -5,6 +5,7 @@ import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
+import Link from '@mui/material/Link';
 
 
 
@@ -14,6 +15,7 @@ interface Aquarium {
   location: string;
   species_count: number
   image: string;
+  url: string;
 }
 
 
@@ -27,10 +29,10 @@ const AquariumCard: React.FC<AquariumProps> = ({ aquariums }) => {
     <>
       {aquariums.map((aquarium) => {
         return (
-          <Card key={aquarium._id}>
+          <Card key={aquarium._id} sx={{ maxWidth: 345 }}>
             <CardMedia
               component="img"
-              height="140"
+              sx={{ height: 140 }}
               image={aquarium.image}
               alt={aquarium.name}
             />
@@ -46,7 +48,7 @@ const AquariumCard: React.FC<AquariumProps> = ({ aquariums }) => {
               </Typography>
             </CardContent>
             <CardActions>
-              <Button size="small">Learn More</Button>
+              <Link href={aquarium.url} target="_blank" rel="noopener noreferrer">Learn More</Link>
             </CardActions>
           </Card>
         );
