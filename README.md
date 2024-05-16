@@ -17,7 +17,8 @@ The sample app combines [DigitalOcean's MongoDB Managed Database](https://www.di
 ## Installation
 
 ### Deploy to DO
-If you choose to deploy this app directly to DigitalOcean, click the button below!
+
+If you choose to deploy this app directly to DigitalOcean, click the button below! Once in the console you can choose other services such as Database, Droplets, Auto-Scaling, and more!
 
 [![Deploy to DO](https://www.deploytodo.com/do-btn-blue.svg)](https://cloud.digitalocean.com/apps/new?repo=https://github.com/do-community/us-aquarium-search/tree/main)
 
@@ -40,7 +41,7 @@ npm install
 Set up `env` variables. There is a `.env.example` file set up for your MonogDB Connection String if you choose to use it:
 
 ```js
-MONGODB_URI=""
+MONGODB_URI = '';
 ```
 
 Run the development server:
