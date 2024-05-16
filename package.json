@@ -8,12 +8,19 @@
   "dependencies": {
     "mongodb": "^6.5.0",
     "next": "latest",
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "react": "latest",
+    "react-dom": "latest",
+    "@emotion/cache": "latest",
+    "@emotion/react": "latest",
+    "@emotion/styled": "latest",
+    "@mui/icons-material": "latest",
+    "@mui/material": "latest",
+    "@mui/material-nextjs": "latest"
   },
   "devDependencies": {
-    "@types/node": "18.7.5",
-    "@types/react": "16.9.17",
-    "typescript": "4.6.3"
+    "@types/node": "latest",
+    "@types/react": "latest",
+    "@types/react-dom": "latest",
+    "typescript": "latest"
   }
 }
