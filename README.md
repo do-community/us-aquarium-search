@@ -17,10 +17,14 @@ The sample app combines [DigitalOcean's MongoDB Managed Database](https://www.di
 ## Installation
 
 ### Deploy to DO
+If you choose to deploy this app directly to DigitalOcean, click the button below!
+
+[![Deploy to DO](https://www.deploytodo.com/do-btn-blue.svg)](https://cloud.digitalocean.com/apps/new?repo=https://github.com/do-community/us-aquarium-search/tree/main)
 
 ### Local Installation
 
 To install the project, follow these steps:
+
 Clone the repository:
 
 ```bash
@@ -31,6 +35,12 @@ Install the dependencies:
 
 ```bash
 npm install
+```
+
+Set up `env` variables. There is a `.env.example` file set up for your MonogDB Connection String if you choose to use it:
+
+```js
+MONGODB_URI=""
 ```
 
 Run the development server:
