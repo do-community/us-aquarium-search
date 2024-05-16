@@ -1,7 +1,6 @@
 import Head from "next/head";
 import clientPromise from "../lib/mongodb";
 import type { InferGetServerSidePropsType, GetServerSideProps } from "next";
-import dynamic from 'next/dynamic'
 
 import Container from '@mui/material/Container';
 import Box from '@mui/material/Box';
@@ -55,40 +54,36 @@ export const getServerSideProps: GetServerSideProps<
 
 };
 
-// const AquariumCard = dynamic(() => import('../components/AquariumCard/AquariumCard'), {
-//   loading: () => <p>Loading...</p>,
-// })
-
 export default function Home({
   isConnected, aquariums
 }: InferGetServerSidePropsType<typeof getServerSideProps>) {
 
   return (
     <>
+      <Head>
+        <title>United States Aquariums</title>
+        <link rel="icon" href="/favicon.ico" />
+      </Head>
       <Header />
+      <main>
+        <Container maxWidth="md">
+          <Box sx={{ my: 4 }}>
+            <AquariumCard aquariums={aquariums} />
+          </Box>
+        </Container>
+      </main>
+      <footer>
+        <a
+          href="https://www.digitalocean.com/"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Powered by{" "}
+          <img src="/do-blue-h-logo.png" alt="DigitalOcean Logo" className="logo" />
+        </a>
+      </footer>
 
-      <div className="container">
-        <Head>
-          <title>United States Aquariums</title>
-          <link rel="icon" href="/favicon.ico" />
-        </Head>
-
-        <main>
-
-        </main>
-
-        <footer>
-          <a
-            href="https://www.digitalocean.com/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Powered by{" "}
-            <img src="/do-blue-h-logo.png" alt="DigitalOcean Logo" className="logo" />
-          </a>
-        </footer>
-
-        <style jsx>{`
+      <style jsx>{`
         .container {
           min-height: 100vh;
           padding: 0 0.5rem;
@@ -184,7 +179,7 @@ export default function Home({
         }
       `}</style>
 
-        <style jsx global>{`
+      <style jsx global>{`
         html,
         body {
           padding: 0;
@@ -207,7 +202,7 @@ export default function Home({
           box-sizing: border-box;
         }
       `}</style>
-      </div>
+
     </>
   );
 }
