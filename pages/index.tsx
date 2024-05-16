@@ -6,6 +6,8 @@ import Container from '@mui/material/Container';
 import Box from '@mui/material/Box';
 import Header from '../components/Header/Header';
 import AquariumCard from '../components/AquariumCard/AquariumCard';
+import Grid from "@mui/material/Grid";
+import TextField from '@mui/material/TextField';
 // import './App.css';
 
 type Aquarium = {
@@ -65,12 +67,21 @@ export default function Home({
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Header />
+      <Box
+        component="form"
+        sx={{
+          '& > :not(style)': { m: 1, width: '25ch' },
+        }}
+        noValidate
+        autoComplete="off"
+      >
+        <TextField id="outlined-basic" label="Outlined" variant="outlined" />
+      </Box>
       <main>
-        <Container maxWidth="md">
-          <Box sx={{ my: 4 }}>
-            <AquariumCard aquariums={aquariums} />
-          </Box>
-        </Container>
+        <Box display="grid" gridTemplateColumns="repeat(3, 1fr)" gap={2}>
+          <AquariumCard aquariums={aquariums} />
+        </Box>
+
       </main>
       <footer>
         <a
