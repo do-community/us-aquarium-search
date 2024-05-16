@@ -1,4 +1,10 @@
-import clientPromise from "../../lib/mongodb";
+import * as React from 'react';
+import Card from '@mui/material/Card';
+import CardActions from '@mui/material/CardActions';
+import CardContent from '@mui/material/CardContent';
+import CardMedia from '@mui/material/CardMedia';
+import Button from '@mui/material/Button';
+import Typography from '@mui/material/Typography';
 
 
 
@@ -18,19 +24,34 @@ interface AquariumProps {
 
 const AquariumCard: React.FC<AquariumProps> = ({ aquariums }) => {
   return (
-    <div>
-      <h1>US Aquariums</h1>
-      <ul>
-        {aquariums.map((aquarium) => (
-          <li key={aquarium._id}>
-            <img src={aquarium.image}></img>
-            <h2>{aquarium.name}</h2>
-            <h3>{aquarium.location}</h3>
-            <h4>{aquarium.species_count}</h4>
-          </li>
-        ))}
-      </ul>
-    </div>
+    <>
+      {aquariums.map((aquarium) => {
+        return (
+          <Card key={aquarium._id}>
+            <CardMedia
+              component="img"
+              height="140"
+              image={aquarium.image}
+              alt={aquarium.name}
+            />
+            <CardContent>
+              <Typography gutterBottom variant="h5" component="div">
+                {aquarium.name}
+              </Typography>
+              <Typography variant="body2" color="text.secondary">
+                {aquarium.location}
+              </Typography>
+              <Typography variant="body2" color="text.secondary">
+                {aquarium.species_count} species
+              </Typography>
+            </CardContent>
+            <CardActions>
+              <Button size="small">Learn More</Button>
+            </CardActions>
+          </Card>
+        );
+      })}
+    </>
   );
 };
 
