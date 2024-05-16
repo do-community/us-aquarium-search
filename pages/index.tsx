@@ -7,6 +7,7 @@ import Header from '../components/Header/Header';
 import AquariumCard from '../components/AquariumCard/AquariumCard';
 import TextField from '@mui/material/TextField';
 import { useState } from "react";
+import Typography from "@mui/material/Typography";
 
 type Aquarium = {
   _id: string;
@@ -75,15 +76,20 @@ export default function Home({
       </Head>
       <Header />
       <Container maxWidth="lg">
-        <Box style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', paddingTop: '5rem' }}
+        <Box style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', flexDirection: 'column', paddingTop: '5rem' }}
           component="form"
           sx={{
-            '& > :not(style)': { m: 1, width: '25ch' },
+            '& > :not(style)': { m: 1, width: '50ch', fontWeight: 'bold' },
           }}
           noValidate
           autoComplete="off"
         >
           <TextField onChange={(e) => setSearch(e.target.value)} id="outlined-basic" label="Search for U.S. Aquariums" variant="outlined" />
+
+          <Typography variant="body2" color="text.secondary">
+            *This is a list of some sample data of aquariums in the United States. Search for an aquarium by name or location.
+          </Typography>
+
         </Box >
         <main>
           <Box display="grid" gridTemplateColumns="repeat(3, 1fr)" gap={4}>
@@ -91,7 +97,7 @@ export default function Home({
           </Box>
 
         </main>
-      </Container>
+      </Container >
       <footer>
         <a
           href="https://www.digitalocean.com/"
