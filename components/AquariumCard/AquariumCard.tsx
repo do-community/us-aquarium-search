@@ -6,9 +6,6 @@ import CardMedia from '@mui/material/CardMedia';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import Link from '@mui/material/Link';
-
-
-
 interface Aquarium {
   _id: string;
   name: string;
@@ -17,7 +14,6 @@ interface Aquarium {
   image: string;
   url: string;
 }
-
 
 interface AquariumProps {
   aquariums: Aquarium[];
