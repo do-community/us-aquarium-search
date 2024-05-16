@@ -44,7 +44,7 @@ const AquariumCard: React.FC<AquariumProps> = ({ aquariums }) => {
               </Typography>
             </CardContent>
             <CardActions>
-              <Link href={aquarium.url} target="_blank" rel="noopener noreferrer">Learn More</Link>
+              <Link href={aquarium.url} target="_blank" rel="noopener noreferrer">{aquarium.name} Info</Link>
             </CardActions>
           </Card>
         );
