@@ -3,6 +3,12 @@ import clientPromise from "../lib/mongodb";
 import type { InferGetServerSidePropsType, GetServerSideProps } from "next";
 import dynamic from 'next/dynamic'
 
+import Container from '@mui/material/Container';
+import Box from '@mui/material/Box';
+import Header from '../components/Header/Header';
+import AquariumCard from '../components/AquariumCard/AquariumCard';
+// import './App.css';
+
 type Aquarium = {
   _id: string;
   name: string;
@@ -49,49 +55,40 @@ export const getServerSideProps: GetServerSideProps<
 
 };
 
-const AquariumCard = dynamic(() => import('../components/AquariumCard/AquariumCard'), {
-  loading: () => <p>Loading...</p>,
-})
+// const AquariumCard = dynamic(() => import('../components/AquariumCard/AquariumCard'), {
+//   loading: () => <p>Loading...</p>,
+// })
 
 export default function Home({
   isConnected, aquariums
 }: InferGetServerSidePropsType<typeof getServerSideProps>) {
 
   return (
-    <div className="container">
-      <Head>
-        <title>United States Aquariums</title>
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
+    <>
+      <Header />
 
-      <main>
-        <h1 className="title">
-          United States Aquariums
-        </h1>
+      <div className="container">
+        <Head>
+          <title>United States Aquariums</title>
+          <link rel="icon" href="/favicon.ico" />
+        </Head>
 
-        <div className="grid">
-          <AquariumCard aquariums={aquariums} />
+        <main>
 
+        </main>
 
+        <footer>
+          <a
+            href="https://www.digitalocean.com/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Powered by{" "}
+            <img src="/do-blue-h-logo.png" alt="DigitalOcean Logo" className="logo" />
+          </a>
+        </footer>
 
-
-
-
-        </div>
-      </main>
-
-      <footer>
-        <a
-          href="https://www.digitalocean.com/"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Powered by{" "}
-          <img src="/do-blue-h-logo.png" alt="DigitalOcean Logo" className="logo" />
-        </a>
-      </footer>
-
-      <style jsx>{`
+        <style jsx>{`
         .container {
           min-height: 100vh;
           padding: 0 0.5rem;
@@ -165,22 +162,6 @@ export default function Home({
           font-size: 1.5rem;
         }
 
-        code {
-          background: #fafafa;
-          border-radius: 5px;
-          padding: 0.75rem;
-          font-size: 1.1rem;
-          font-family:
-            Menlo,
-            Monaco,
-            Lucida Console,
-            Liberation Mono,
-            DejaVu Sans Mono,
-            Bitstream Vera Sans Mono,
-            Courier New,
-            monospace;
-        }
-
         .grid {
           display: flex;
           align-items: center;
@@ -189,38 +170,6 @@ export default function Home({
 
           max-width: 800px;
           margin-top: 3rem;
-        }
-
-        .card {
-          margin: 1rem;
-          flex-basis: 45%;
-          padding: 1.5rem;
-          text-align: left;
-          color: inherit;
-          text-decoration: none;
-          border: 1px solid #eaeaea;
-          border-radius: 10px;
-          transition:
-            color 0.15s ease,
-            border-color 0.15s ease;
-        }
-
-        .card:hover,
-        .card:focus,
-        .card:active {
-          color: #0070f3;
-          border-color: #0070f3;
-        }
-
-        .card h3 {
-          margin: 0 0 1rem 0;
-          font-size: 1.5rem;
-        }
-
-        .card p {
-          margin: 0;
-          font-size: 1.25rem;
-          line-height: 1.5;
         }
 
         .logo {
@@ -235,7 +184,7 @@ export default function Home({
         }
       `}</style>
 
-      <style jsx global>{`
+        <style jsx global>{`
         html,
         body {
           padding: 0;
@@ -258,6 +207,7 @@ export default function Home({
           box-sizing: border-box;
         }
       `}</style>
-    </div>
+      </div>
+    </>
   );
 }
