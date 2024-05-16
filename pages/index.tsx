@@ -6,6 +6,7 @@ import Box from '@mui/material/Box';
 import Header from '../components/Header/Header';
 import AquariumCard from '../components/AquariumCard/AquariumCard';
 import TextField from '@mui/material/TextField';
+import { useState } from "react";
 
 type Aquarium = {
   _id: string;
@@ -57,6 +58,14 @@ export const getServerSideProps: GetServerSideProps<
 export default function Home({
   aquariums
 }: InferGetServerSidePropsType<typeof getServerSideProps>) {
+  const [search, setSearch] = useState("");
+  console.log(search);
+
+  const filterAquariums = (aquarium: Aquarium) => {
+    return aquarium.name.toLowerCase().includes(search.toLowerCase()) || aquarium.location.toLowerCase().includes(search.toLowerCase());
+  }
+
+  const filteredAquariums = aquariums.filter(filterAquariums);
 
   return (
     <>
@@ -74,12 +83,13 @@ export default function Home({
           noValidate
           autoComplete="off"
         >
-          <TextField id="outlined-basic" label="Search for U.S. Aquariums" variant="outlined" />
+          <TextField onChange={(e) => setSearch(e.target.value)} id="outlined-basic" label="Search for U.S. Aquariums" variant="outlined" />
         </Box >
         <main>
           <Box display="grid" gridTemplateColumns="repeat(3, 1fr)" gap={4}>
-            <AquariumCard aquariums={aquariums} />
+            <AquariumCard aquariums={filteredAquariums} />
           </Box>
+
         </main>
       </Container>
       <footer>
