@@ -1,14 +1,11 @@
 import Head from "next/head";
 import clientPromise from "../lib/mongodb";
 import type { InferGetServerSidePropsType, GetServerSideProps } from "next";
-
 import Container from '@mui/material/Container';
 import Box from '@mui/material/Box';
 import Header from '../components/Header/Header';
 import AquariumCard from '../components/AquariumCard/AquariumCard';
-import Grid from "@mui/material/Grid";
 import TextField from '@mui/material/TextField';
-// import './App.css';
 
 type Aquarium = {
   _id: string;
@@ -16,6 +13,7 @@ type Aquarium = {
   location: string;
   species_count: number;
   image: string;
+  url: string;
 };
 
 type IndexProps = {
@@ -57,7 +55,7 @@ export const getServerSideProps: GetServerSideProps<
 };
 
 export default function Home({
-  isConnected, aquariums
+  aquariums
 }: InferGetServerSidePropsType<typeof getServerSideProps>) {
 
   return (
@@ -67,22 +65,23 @@ export default function Home({
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Header />
-      <Box
-        component="form"
-        sx={{
-          '& > :not(style)': { m: 1, width: '25ch' },
-        }}
-        noValidate
-        autoComplete="off"
-      >
-        <TextField id="outlined-basic" label="Outlined" variant="outlined" />
-      </Box>
-      <main>
-        <Box display="grid" gridTemplateColumns="repeat(3, 1fr)" gap={2}>
-          <AquariumCard aquariums={aquariums} />
-        </Box>
-
-      </main>
+      <Container maxWidth="lg">
+        <Box style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', paddingTop: '5rem' }}
+          component="form"
+          sx={{
+            '& > :not(style)': { m: 1, width: '25ch' },
+          }}
+          noValidate
+          autoComplete="off"
+        >
+          <TextField id="outlined-basic" label="Search for U.S. Aquariums" variant="outlined" />
+        </Box >
+        <main>
+          <Box display="grid" gridTemplateColumns="repeat(3, 1fr)" gap={4}>
+            <AquariumCard aquariums={aquariums} />
+          </Box>
+        </main>
+      </Container>
       <footer>
         <a
           href="https://www.digitalocean.com/"
@@ -102,6 +101,10 @@ export default function Home({
           flex-direction: column;
           justify-content: center;
           align-items: center;
+        }
+
+        header {
+          margin-bottom: 4rem;
         }
 
         main {
