@@ -10,7 +10,7 @@ const Header = () => {
       <AppBar position="static">
         <Toolbar variant="dense">
           <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-            North American Aquariums
+            United States Aquariums
           </Typography>
         </Toolbar>
       </AppBar>
