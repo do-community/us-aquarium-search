@@ -1,5 +1,7 @@
 # United States Aquariums
 
+https://github.com/do-community/us-aquarium-search/assets/6799474/cbcdbf82-ba7b-4c8b-82da-6bf89fbab115
+
 ## Description
 
 This sample app demonstrates how to use React in a NextJS app to create a search and filter feature for a list of some aquariums in the United States. The app uses the `useState` hook to filter the list of aquariums based on the user's input in the search bar.
