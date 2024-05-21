@@ -1,0 +1,7 @@
+spec:
+  name: us-aquarium-search
+  services:
+    - name: us-aquarium-search
+      git:
+        branch: main
+        repo_clone_url: https://github.com/do-community/us-aquarium-search.git
