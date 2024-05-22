@@ -1,8 +1,8 @@
 # United States Aquariums
 
-**Note:** Following these steps may result in charges for the use of DigitalOcean services.
-
 https://github.com/do-community/us-aquarium-search/assets/6799474/cbcdbf82-ba7b-4c8b-82da-6bf89fbab115
+
+**Note:** Following these steps may result in charges for the use of DigitalOcean services.
 
 ## Table of Contents
 
