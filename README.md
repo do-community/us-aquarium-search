@@ -4,6 +4,14 @@
 
 https://github.com/do-community/us-aquarium-search/assets/6799474/cbcdbf82-ba7b-4c8b-82da-6bf89fbab115
 
+## Table of Contents
+
+- [Requirements](#requirements)
+- [Description](#description)
+- [Installation](#installation)
+- [Usage](#usage)
+- [License](#license)
+
 ## Requirements
 
 You need a DigitalOcean account. If you do not already have one, first [sign up](https://cloud.digitalocean.com/registrations/new).
@@ -15,12 +23,6 @@ This [sample app](https://oyster-app-rpxke.ondigitalocean.app/) demonstrates how
 The [sample app](https://oyster-app-rpxke.ondigitalocean.app/) combines [DigitalOcean's MongoDB Managed Database](https://www.digitalocean.com/products/managed-databases-mongodb?utm_team=devrel&utm_source=github&utm_content=managed-databases-mongodb) and Compass to store the list of aquariums and is mapped over and displayed using [Material UI components](https://mui.com/material-ui/).
 
 [Auto-scaling](https://www.digitalocean.com/blog/introducing-cpu-based-autoscaling-app-platform) is also enabled to ensure that the app can handle increased traffic.
-
-## Table of Contents
-
-- [Installation](#installation)
-- [Usage](#usage)
-- [License](#license)
 
 ## Installation
 
