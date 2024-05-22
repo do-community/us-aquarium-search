@@ -10,9 +10,11 @@ You need a DigitalOcean account. If you do not already have one, first [sign up]
 
 ## Description
 
-This sample app demonstrates how to use React in a NextJS app to create a search and filter feature for a list of some aquariums in the United States. The app uses the `useState` hook to filter the list of aquariums based on the user's input in the search bar.
+This [sample app](https://oyster-app-rpxke.ondigitalocean.app/) demonstrates how to use React in a NextJS app to create a search and filter feature for a list of _some_ aquariums in the United States. The app uses the `useState` hook to filter the list of aquariums based on the user's input in the search bar.
 
-The sample app combines [DigitalOcean's MongoDB Managed Database](https://www.digitalocean.com/products/managed-databases-mongodb?utm_team=devrel&utm_source=github&utm_content=managed-databases-mongodb) and Compass to store the list of aquariums and is mapped over and displayed using [Material UI components](https://mui.com/material-ui/).
+The [sample app](https://oyster-app-rpxke.ondigitalocean.app/) combines [DigitalOcean's MongoDB Managed Database](https://www.digitalocean.com/products/managed-databases-mongodb?utm_team=devrel&utm_source=github&utm_content=managed-databases-mongodb) and Compass to store the list of aquariums and is mapped over and displayed using [Material UI components](https://mui.com/material-ui/).
+
+[Auto-scaling](https://www.digitalocean.com/blog/introducing-cpu-based-autoscaling-app-platform) is also enabled to ensure that the app can handle increased traffic.
 
 ## Table of Contents
 
@@ -43,7 +45,7 @@ After clicking the **Deploy to DigitalOcean** button or completing the instructi
 1. On the following screen, leave all the fields as they are and click **Next**.
 1. Confirm your plan settings and how many containers you want to launch and click **Launch Basic/Pro App**.
 
-After, you should see a "Building..." progress indicator. You can click **View Logs** to see more details of the build. It can take a few minutes for the build to finish, but you can follow the progress in the **Deployments** tab.
+After, you should see a **"Building..."** progress indicator. You can click **View Logs** to see more details of the build. It can take a few minutes for the build to finish, but you can follow the progress in the **Deployments** tab.
 
 Once the build completes successfully, click the **Live App** link in the header and you should see your running application in a new tab, displaying the home page.
 
@@ -59,7 +61,8 @@ To install the project, follow these steps:
 npm install
 ```
 
-3. If you are planning on using MongoDB (setup code already in app), set up `env` variables if. There is a `.env.example` file set up for your MonogDB Connection String if you choose to use it:
+3. If you are planning on using MongoDB (setup code already in app), make sure to set up the `env` variables so your local development works. Once in the console you will have to set that same `env` variable for the app to build.
+   There is a `.env.example` file set up for your MonogDB Connection String if you choose to use it:
 
 ```js
 MONGODB_URI = '';
@@ -73,15 +76,19 @@ npm run dev
 
 ## Usage
 
-This sample app can modified to include any data set that you would like to filter and search through. The CSS can also be modified to fit your design preferences.
+This sample app uses [NextJS](https://nextjs.org/) and can modified to include any data set that you would like to filter and search through.
 
-If you choose to use another CSS framework, you can remove the Material UI components and replace them with the components from the framework you choose.
+### CSS
 
-Make sure to set up your MongoDB database and connect it to your app. You can use the [MongoDB Compass](https://www.mongodb.com/products/tools/compass) to add the data to your database.
+The CSS can also be modified to fit your design preferences. If you choose to use another CSS framework, you can remove the [Material UI components](https://mui.com/material-ui/) and replace them with the components from the framework you choose.
 
-If you choose to use another database, you can modify the code to connect to your database.
+### Database
 
-The demo url is using auto-scaling.
+You are not limited to **ONLY** using MongoDB but if you do, make sure to set up your MongoDB database and connect it to your app. You can use [MongoDB Compass](https://www.mongodb.com/products/tools/compass) to add the data to your database. MongoDB will not be setup by default, you will have to set up your own database as it is not considered a dev database in this case.
+
+If you choose to use another database platform, you can modify the code to connect to your database.
+
+### Auto-Scaling
 
 ## License
 
