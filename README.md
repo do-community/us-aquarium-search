@@ -14,7 +14,9 @@ https://github.com/do-community/us-aquarium-search/assets/6799474/cbcdbf82-ba7b-
 
 ## Requirements
 
-You need a DigitalOcean account. If you do not already have one, first [sign up](https://cloud.digitalocean.com/registrations/new).
+- You need a DigitalOcean account. If you do not already have one, first [sign up](https://cloud.digitalocean.com/registrations/new).
+
+- Latest version of [Node.js](https://nodejs.org/en/download/) and [npm](https://www.npmjs.com/get-npm) installed on your machine.
 
 ## Description
 
