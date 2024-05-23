@@ -1,7 +1,7 @@
 spec:
   name: us-aquarium-search
-  build_command: npm run build
   services:
+    - build_command: npm run build
     - name: web
       git:
         branch: main
