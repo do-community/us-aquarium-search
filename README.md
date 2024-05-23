@@ -10,8 +10,6 @@ https://github.com/do-community/us-aquarium-search/assets/6799474/cbcdbf82-ba7b-
 - [Description](#description)
 - [Installation](#installation)
 - [Usage](#usage)
-- [Learn More](#learn-more)
-- [Delete the App](#delete-the-app)
 - [License](#license)
 
 ## Requirements
@@ -26,7 +24,7 @@ This [sample app](https://oyster-app-rpxke.ondigitalocean.app/) demonstrates how
 
 The [sample app](https://oyster-app-rpxke.ondigitalocean.app/) combines [DigitalOcean's MongoDB Managed Database](https://www.digitalocean.com/products/managed-databases-mongodb?utm_team=devrel&utm_source=github&utm_content=managed-databases-mongodb) and Compass to store the list of aquariums and is mapped over and displayed using [Material UI components](https://mui.com/material-ui/).
 
-[Auto-scaling](https://www.digitalocean.com/blog/introducing-cpu-based-autoscaling-app-platform) is also enabled to ensure that the app can handle increased traffic.
+[Auto-scaling](https://www.digitalocean.com/blog/introducing-cpu-based-autoscaling-app-platform) is also enabled in the deployed app to ensure that the app can handle increased traffic.
 
 ## Installation
 
@@ -47,9 +45,9 @@ After forking the repo, you can view the same README in your own GitHub org; for
 After clicking the **Deploy to DigitalOcean** button or completing the instructions above to fork the repo, follow these steps:
 
 1. Configure the app, such as by specifying HTTP routes, declaring environment variables, auto-scaling setup, or adding a database. For the purposes of this tutorial, this step is optional.
-1. Provide a name for your app and select the region to deploy your app to, then click **Next**. By default, App Platform selects the region closest to you. Unless your app needs to interface with external services, your chosen region does not affect the app's performance, since to all App Platform apps are routed through a global CDN.
-1. On the following screen, leave all the fields as they are and click **Next**.
-1. Confirm your plan settings and how many containers you want to launch and click **Launch Basic/Pro App**.
+2. Provide a name for your app and select the region to deploy your app to, then click **Next**. By default, App Platform selects the region closest to you. Unless your app needs to interface with external services, your chosen region does not affect the app's performance, since to all App Platform apps are routed through a global CDN.
+3. On the following screen, leave all the fields as they are and click **Next**.
+4. Confirm your plan settings and how many containers you want to launch and click **Launch Basic/Pro App**.
 
 After, you should see a **"Building..."** progress indicator. You can click **View Logs** to see more details of the build. It can take a few minutes for the build to finish, but you can follow the progress in the **Deployments** tab.
 
@@ -60,7 +58,6 @@ Once the build completes successfully, click the **Live App** link in the header
 To install the project, follow these steps:
 
 1. Fork the repository
-
 2. Install the dependencies:
 
 ```bash
@@ -90,25 +87,15 @@ The CSS can also be modified to fit your design preferences. If you choose to us
 
 ### Database
 
-You are not limited to **ONLY** using MongoDB but if you do, make sure to set up your MongoDB database and connect it to your app. You can use [MongoDB Compass](https://www.mongodb.com/products/tools/compass) to add the data to your database. MongoDB will not be setup by default, you will have to set up your own database as it is not considered a dev database in this case.
+You are not limited to **ONLY** using MongoDB but if you do, make sure to set up your MongoDB database and connect it to your app. You can use [MongoDB Compass](https://www.mongodb.com/products/tools/compass) to add the data to your database. MongoDB will not be setup by default, you will have to set up your own database. MongoDB it is not considered a dev database in this case.
 
 If you choose to use another database platform, you can modify the code to connect to your database.
 
 ### Auto-Scaling
 
-## Learn More
+The sample app has auto-scaling enabled in the resources. If you choose to use auto-scaling, you must have a dedicated instance for the feature to work. By choosing the $49/month dedicated instance, the auto-scaling feature is unlocked. You can set the minimum and maximum container size as well as the CPU Threshold % as you can see by the image below.
 
-To learn more about App Platform and how to manage and update your application, see [our App Platform documentation](https://www.digitalocean.com/docs/app-platform/).
-
-## Delete the App
-
-When you no longer need this sample application running live, you can delete it by following these steps:
-
-1. Visit the [Apps control panel](https://cloud.digitalocean.com/apps).
-2. Navigate to the sample app.
-3. In the **Settings** tab, click **Destroy**.
-
-**Note**: If you do not delete your app, charges for using DigitalOcean services will continue to accrue.
+![auto-scale-screenshot](https://github.com/do-community/us-aquarium-search/assets/6799474/9f7b9781-4451-4af1-a28e-d07528921e6a)
 
 ## License
 
