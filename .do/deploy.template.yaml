@@ -1,7 +1,9 @@
 spec:
   name: us-aquarium-search
   services:
-    - name: web
-      git:
-        branch: main
-        repo_clone_url: https://github.com/do-community/us-aquarium-search.git
+  - build_command: npm run build
+    environment_slug: node-js
+  - name: web
+    git:
+      branch: main
+      repo_clone_url: https://github.com/do-community/us-aquarium-search.git
