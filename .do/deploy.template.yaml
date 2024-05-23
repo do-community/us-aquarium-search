@@ -3,7 +3,6 @@ spec:
   services:
   - build_command: npm run build
     environment_slug: node-js
-  - name: web
     git:
       branch: main
       repo_clone_url: https://github.com/do-community/us-aquarium-search.git
