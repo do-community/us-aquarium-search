@@ -10,6 +10,8 @@ https://github.com/do-community/us-aquarium-search/assets/6799474/cbcdbf82-ba7b-
 - [Description](#description)
 - [Installation](#installation)
 - [Usage](#usage)
+- [Learn More](#learn-more)
+- [Delete the App](#delete-the-app)
 - [License](#license)
 
 ## Requirements
@@ -93,6 +95,20 @@ You are not limited to **ONLY** using MongoDB but if you do, make sure to set up
 If you choose to use another database platform, you can modify the code to connect to your database.
 
 ### Auto-Scaling
+
+## Learn More
+
+To learn more about App Platform and how to manage and update your application, see [our App Platform documentation](https://www.digitalocean.com/docs/app-platform/).
+
+## Delete the App
+
+When you no longer need this sample application running live, you can delete it by following these steps:
+
+1. Visit the [Apps control panel](https://cloud.digitalocean.com/apps).
+2. Navigate to the sample app.
+3. In the **Settings** tab, click **Destroy**.
+
+**Note**: If you do not delete your app, charges for using DigitalOcean services will continue to accrue.
 
 ## License
 
