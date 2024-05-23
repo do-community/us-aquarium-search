@@ -34,7 +34,7 @@ Click the following button to deploy the app to App Platform. If you are not cur
 
 Once in the console you can choose other services such as Database, Droplets, Auto-Scaling, and more!
 
-[![Deploy to DO](https://www.deploytodo.com/do-btn-blue.svg)](https://cloud.digitalocean.com/apps/new?repo=https://github.com/do-community/us-aquarium-search/tree/main)
+[![Deploy to DO](https://www.deploytodo.com/do-btn-blue.svg)](https://cloud.digitalocean.com/apps/new?repo=https://chrisdemars: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@github.com/do-community/us-aquarium-search/tree/main)
 
 Note that, for the purposes of this tutorial, this button deploys the app directly from DigitalOcean's GitHub repository, which disables automatic redeployment since you cannot change our template. If you want automatic redeployment or you want to change the sample app's code to your own, we instead recommend you fork [our repository](https://github.com/do-community/us-aquarium-search/tree/main).
 
