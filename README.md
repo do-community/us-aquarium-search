@@ -65,7 +65,7 @@ npm install
 ```
 
 3. If you are planning on using MongoDB (setup code already in app), make sure to set up the `env` variables so your local development works. Once in the console you will have to set that same `env` variable for the app to build.
-   There is a `.env.example` file set up for your MonogDB Connection String if you choose to use it:
+   There is a `.env.example` file set up for your MongoDB Connection String if you choose to use it:
 
 ```js
 MONGODB_URI = '';
