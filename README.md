@@ -87,7 +87,13 @@ The CSS can also be modified to fit your design preferences. If you choose to us
 
 ### Database
 
-You are not limited to **ONLY** using MongoDB but if you do, make sure to set up your MongoDB database and connect it to your app. You can use [MongoDB Compass](https://www.mongodb.com/products/tools/compass) to add the data to your database. MongoDB will not be setup by default, you will have to set up your own database. MongoDB it is not considered a dev database in this case.
+You are not limited to **ONLY** using MongoDB but if you do, make sure to set up your MongoDB database and connect it to your app. You can use [MongoDB Compass](https://www.mongodb.com/products/tools/compass) to add the data to your database. MongoDB will not be setup by default, you will have to set up your own database. MongoDB it is not considered a dev database in this case. The video below shows how to setup and add the Mongo instance to your app.
+
+Make sure to add your trusted sources to your database. For more information about that, check out the [How to Secure MongoDB Managed Database Clusters](https://docs.digitalocean.com/products/databases/mongodb/how-to/secure/) docs.
+
+Next to the top of the page where it says "test-db" it says **"Creating..."**. The db is being proivisioned and could take a few minutes. Once it is complete, your db will be ready.
+
+https://github.com/do-community/us-aquarium-search/assets/6799474/a768ea6a-a951-48f6-a026-51733f323c66
 
 If you choose to use another database platform, you can modify the code to connect to your database. To learn more about our Managed Databases, see the [Managed Databases documentation](https://www.digitalocean.com/products/managed-databases?utm_team=devrel&utm_source=github&utm_content=managed-databases).
 
