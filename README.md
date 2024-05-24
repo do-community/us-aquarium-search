@@ -100,8 +100,7 @@ You can set the minimum and maximum container size as well as the CPU Threshold 
 ![autoscale-screenshot](https://github.com/do-community/us-aquarium-search/assets/6799474/9f7b9781-4451-4af1-a28e-d07528921e6a)
 
 I tested the autoscaling feature by running a load test (200,000 requests) on the app using [hey](https://github.com/rakyll/hey). The app was able to handle the increased traffic and the containers scaled up to meet the demand.
-
-![autoscaling in action](https://github.com/do-community/us-aquarium-search/assets/6799474/900a4411-a077-44d8-852c-cc280ce0811d)
+![autoscale feature in app platform](https://github.com/do-community/us-aquarium-search/assets/6799474/ede9c2d5-ef27-40ea-99c0-63fa63cd4a9f)
 
 ## License
 
