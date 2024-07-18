@@ -23,6 +23,7 @@
     "@types/node": "latest",
     "@types/react": "latest",
     "@types/react-dom": "latest",
+    "nodemon": "^3.1.4",
     "typescript": "latest"
   }
 }
