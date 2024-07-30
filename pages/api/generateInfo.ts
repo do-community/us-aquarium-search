@@ -1,4 +1,5 @@
-import { Configuration, OpenAIApi } from 'openai';
+import { Configuration, OpenAI } from 'openai';
+
 import { marineInfoPrompt } from '../../data/prompt.json';
 import { Request, Response } from 'express';
 
@@ -6,12 +7,12 @@ const configuration = new Configuration({
   apiKey: process.env.OPENAI_API_KEY as string,
 });
 
-const openai = new OpenAIApi(configuration);
+const openai = new OpenAI(configuration);
 
 const generateInfo = async (req: Request, res: Response) => {
   const { marineInfo } = req.body;
   try {
-    const completion = await openai.createChatCompletion({
+    const completion = await openai.chat.completions.create({
       model: "gpt-3.5-turbo",
       messages: [
         { role: 'user', content: `${marineInfoPrompt}${marineInfo}` },
