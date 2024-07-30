@@ -1,19 +1,14 @@
-// import the Configuration class and the OpenAIApi class from the openai npm module
 import { Configuration, OpenAIApi } from 'openai';
-const { marineInfoPrompt } = require('../../data/prompt.json');
+import { marineInfoPrompt } from '../../data/prompt.json';
+import { Request, Response } from 'express';
 
-// create a new Configuration object that includes the api key and sues the Configuration class from the openai module
 const configuration = new Configuration({
-  apiKey: process.env.OPENAI_API_KEY,
+  apiKey: process.env.OPENAI_API_KEY as string,
 });
 
-// create a new instance of the OpenAIApi class and pass in the configuration object
 const openai = new OpenAIApi(configuration);
 
-// create an async function called generateInfo that accepts a request and response object as parameters
-// use try to make a request to the OpenAI completetion api and return the response
-// use catch to catch any errors and return a 500 status code with the error message
-const generateInfo =  async (req, res) {
+const generateInfo = async (req: Request, res: Response) => {
   const { marineInfo } = req.body;
   try {
     const completion = await openai.createChatCompletion({
@@ -21,7 +16,6 @@ const generateInfo =  async (req, res) {
       messages: [
         { role: 'user', content: `${marineInfoPrompt}${marineInfo}` },
       ],
-      prompt: req.body.prompt,
       max_tokens: 200,
       temperature: 0,
       n: 1,
@@ -46,9 +40,4 @@ const generateInfo =  async (req, res) {
   }
 }
 
-// export the generateInfo function as a module
-module.exports = generateInfo;
-
-
-
-
+export default generateInfo;
