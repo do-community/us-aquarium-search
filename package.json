@@ -19,7 +19,7 @@
     "express": "^4.19.2",
     "mongodb": "^6.5.0",
     "next": "latest",
-    "openai": "^4.53.2",
+    "openai": "^3.2.1",
     "react": "latest",
     "react-dom": "latest",
     "tsx": "^4.16.2"
