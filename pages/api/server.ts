@@ -1,6 +1,6 @@
 import express, { Express } from 'express';
 import cors from 'cors';
-import openaiRouter from './router';
+import router from './router';
 
 // create the server with express and name it app
 const app: Express = express();
@@ -13,10 +13,15 @@ app.use(cors());
 
 // enable body parser to accept json data
 app.use(express.json());
+app.use(express.urlencoded({ extended: false }));
 
 // state which port the server is listening to and log it to the console
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);
 });
 
-app.use('/openai', openaiRouter);
+// add router to the server and name it openai
+app.use('/openai', router);
+
+// export the express api
+module.exports = app;
