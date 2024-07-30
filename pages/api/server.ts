@@ -24,4 +24,4 @@ app.listen(PORT, () => {
 app.use('/openai', router);
 
 // export the express api
-module.exports = app;
+export default app;
