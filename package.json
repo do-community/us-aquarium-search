@@ -5,7 +5,7 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "devserver": "nodemon pages/api/server.ts"
+    "devserver": "nodemon --exec \"tsx pages/api/server.ts\""
   },
   "dependencies": {
     "@emotion/cache": "latest",
@@ -21,14 +21,14 @@
     "next": "latest",
     "openai": "^4.53.2",
     "react": "latest",
-    "react-dom": "latest"
+    "react-dom": "latest",
+    "tsx": "^4.16.2"
   },
   "devDependencies": {
     "@types/node": "latest",
     "@types/react": "latest",
     "@types/react-dom": "latest",
     "nodemon": "^3.1.4",
-    "ts-node": "^10.9.2",
     "typescript": "latest"
   }
 }

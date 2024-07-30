@@ -1,5 +1,4 @@
-import Configuration from 'openai';
-import { OpenAIApi } from 'openai';
+import { Configuration, OpenAIApi } from 'openai';
 import { marineInfoPrompt } from '../../data/prompt.json';
 import { Request, Response } from 'express';
 
