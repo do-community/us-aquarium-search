@@ -18,6 +18,14 @@ const generateInfo =  async (req, res) {
       engine: 'davinci',
       prompt: req.body.prompt,
       max_tokens: 64,
+      temperatur: 0.9,
+      topP: 1,
+      presencePenalty: 0,
+      frequencyPenalty: 0,
+      bestOf: 1,
+      n: 1,
+      stream: false,
+      stop: ['\n'],
     });
     res.status(200).json(response);
   } catch (error) {
