@@ -1,5 +1,6 @@
 {
   "private": true,
+  "type": "module",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
@@ -18,7 +19,7 @@
     "express": "^4.19.2",
     "mongodb": "^6.5.0",
     "next": "latest",
-    "openai": "^4.52.7",
+    "openai": "^4.53.2",
     "react": "latest",
     "react-dom": "latest"
   },
@@ -27,6 +28,7 @@
     "@types/react": "latest",
     "@types/react-dom": "latest",
     "nodemon": "^3.1.4",
+    "ts-node": "^10.9.2",
     "typescript": "latest"
   }
 }
