@@ -5,7 +5,7 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "devserver": "nodemon pages/api/server.tsx"
+    "devserver": "nodemon pages/api/server.ts"
   },
   "dependencies": {
     "@emotion/cache": "latest",
