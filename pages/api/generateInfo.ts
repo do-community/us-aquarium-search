@@ -1,9 +1,9 @@
 import { Configuration, OpenAIApi } from 'openai';
-
 import { marineInfoPrompt } from '../../data/prompt.json';
 import { Request, Response } from 'express';
 
 const configuration = new Configuration({
+  organization: 'org-xdfMQdKET90O8OVse9OQGxew',
   apiKey: process.env.OPENAI_API_KEY as string,
 });
 
