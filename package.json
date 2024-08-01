@@ -17,7 +17,6 @@
     "@types/express": "^4.17.21",
     "cors": "^2.8.5",
     "dotenv": "^16.4.5",
-    "express": "^4.19.2",
     "mongodb": "^6.5.0",
     "next": "latest",
     "openai": "^3.2.1",
@@ -30,7 +29,6 @@
     "@types/node": "latest",
     "@types/react": "latest",
     "@types/react-dom": "latest",
-    "nodemon": "^3.1.4",
     "typescript": "latest"
   }
 }
