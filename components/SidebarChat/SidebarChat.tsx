@@ -2,49 +2,34 @@ import * as React from 'react';
 import Box from '@mui/material/Box';
 import Drawer from '@mui/material/Drawer';
 import Button from '@mui/material/Button';
-import List from '@mui/material/List';
+import TextField from '@mui/material/TextField';
 import Divider from '@mui/material/Divider';
-import ListItem from '@mui/material/ListItem';
-import ListItemButton from '@mui/material/ListItemButton';
-import ListItemIcon from '@mui/material/ListItemIcon';
-import ListItemText from '@mui/material/ListItemText';
-import InboxIcon from '@mui/icons-material/MoveToInbox';
-import MailIcon from '@mui/icons-material/Mail';
 
 export default function TemporaryDrawer() {
   const [open, setOpen] = React.useState(false);
+  const [inputValue, setInputValue] = React.useState('');
 
   const toggleDrawer = (newOpen: boolean) => () => {
     setOpen(newOpen);
   };
 
-  const DrawerList = (
-    <Box sx={{ width: 250 }} role="presentation" onClick={toggleDrawer(false)}>
-      <List>
-        {['Inbox', 'Starred', 'Send email', 'Drafts'].map((text, index) => (
-          <ListItem key={text} disablePadding>
-            <ListItemButton>
-              <ListItemIcon>
-                {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
-              </ListItemIcon>
-              <ListItemText primary={text} />
-            </ListItemButton>
-          </ListItem>
-        ))}
-      </List>
-      <Divider />
-      <List>
-        {['All mail', 'Trash', 'Spam'].map((text, index) => (
-          <ListItem key={text} disablePadding>
-            <ListItemButton>
-              <ListItemIcon>
-                {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
-              </ListItemIcon>
-              <ListItemText primary={text} />
-            </ListItemButton>
-          </ListItem>
-        ))}
-      </List>
+  const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setInputValue(event.target.value);
+  };
+
+  const DrawerContent = (
+    <Box sx={{ width: 500, padding: 2 }} role="presentation" onClick={toggleDrawer(false)}>
+      <TextField
+        fullWidth
+        label="Type your question here"
+        variant="outlined"
+        value={inputValue}
+        onChange={handleInputChange}
+        sx={{ mb: 2 }}
+      />
+      <Button variant="contained" fullWidth onClick={() => alert('Button clicked!')}>
+        Ask Away!
+      </Button>
     </Box>
   );
 
@@ -52,7 +37,7 @@ export default function TemporaryDrawer() {
     <div>
       <Button onClick={toggleDrawer(true)}>Open drawer</Button>
       <Drawer open={open} onClose={toggleDrawer(false)}>
-        {DrawerList}
+        {DrawerContent}
       </Drawer>
     </div>
   );
