@@ -6,17 +6,17 @@ import TextField from '@mui/material/TextField';
 import AppBar from '@mui/material/AppBar';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
-import { Divider } from '@mui/material';
+import { Divider, Paper } from '@mui/material';
 import IconButton from '@mui/material/IconButton';
 import MenuIcon from '@mui/icons-material/Menu';
-
-import AquariumCard from '../AquariumCard/AquariumCard';
+import axios from 'axios';
 
 export default function PersistentDrawer() {
-  const [open, setOpen] = React.useState(true); // Persistent drawer should be open initially
+  const [open, setOpen] = React.useState(true);
   const [inputValue, setInputValue] = React.useState('');
+  const [messages, setMessages] = React.useState([]);
 
-  const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+  const handleInputChange = (event) => {
     setInputValue(event.target.value);
   };
 
@@ -24,22 +24,73 @@ export default function PersistentDrawer() {
     setOpen(!open);
   };
 
+  const handleSendMessage = async () => {
+    if (inputValue.trim() === '') return; // Prevent sending empty messages
+
+    const userMessage = {
+      sender: 'user',
+      text: inputValue,
+    };
+
+    setMessages((prevMessages) => [...prevMessages, userMessage]);
+    setInputValue('');
+
+    try {
+      const response = await axios.post('/api/generateInfo', { marineInfo: userMessage.text });
+      const botMessage = {
+        sender: 'bot',
+        text: response.data.data,
+      };
+
+      setMessages((prevMessages) => [...prevMessages, botMessage]);
+    } catch (error) {
+      console.error('Error sending message:', error);
+    }
+  };
+
+  const handleKeyPress = (event) => {
+    if (event.key === 'Enter') {
+      handleSendMessage();
+    }
+  };
+
   const drawerWidth = 500;
 
   const DrawerContent = (
     <Box
-      sx={{ width: drawerWidth, padding: 2 }}
+      sx={{ width: drawerWidth, padding: 2, display: 'flex', flexDirection: 'column', height: '100%' }}
       role="presentation"
     >
+      <Box sx={{ flexGrow: 1, overflowY: 'auto', mb: 2 }}>
+        {messages.map((message, index) => (
+          <Paper
+            key={index}
+            sx={{
+              p: 2,
+              mb: 1,
+              backgroundColor: message.sender === 'user' ? 'lightgreen' : 'lightblue',
+              display: 'flex',
+              alignItems: 'center',
+              borderRadius: '10px',
+            }}
+          >
+            <Typography sx={{ mr: 1 }}>
+              {message.sender === 'user' ? '👤' : '🦈'}
+            </Typography>
+            <Typography>{message.text}</Typography>
+          </Paper>
+        ))}
+      </Box>
       <TextField
         fullWidth
-        label="Type your question here"
+        label="🦈 Type your question here"
         variant="outlined"
         value={inputValue}
         onChange={handleInputChange}
+        onKeyPress={handleKeyPress} // Listen for the Enter key press
         sx={{ mb: 2 }}
       />
-      <Button variant="contained" fullWidth onClick={() => alert('Button clicked!')}>
+      <Button variant="contained" fullWidth onClick={handleSendMessage}>
         Ask Away!
       </Button>
     </Box>
@@ -47,14 +98,14 @@ export default function PersistentDrawer() {
 
   return (
     <Box sx={{ display: 'flex' }}>
-      <AppBar position="fixed" sx={{ width: `calc(100% - ${drawerWidth}px)`, ml: `${drawerWidth}px` }}>
+      <AppBar position="fixed" sx={{ width: '100%' }}>
         <Toolbar>
           <IconButton
             color="inherit"
             aria-label="open drawer"
             onClick={toggleDrawer}
             edge="start"
-            sx={{ mr: 2, ...(open && { display: 'none' }) }}
+            sx={{ mr: 2 }}
           >
             <MenuIcon />
           </IconButton>
@@ -86,13 +137,9 @@ export default function PersistentDrawer() {
       </Drawer>
       <Box
         component="main"
-        sx={{ flexGrow: 1, bgcolor: 'background.default', p: 3, ml: `${drawerWidth}px` }}
+        sx={{ flexGrow: 1, bgcolor: 'background.default', p: 3, ml: `${open ? drawerWidth : 0}px` }}
       >
         <Toolbar />
-        <AquariumCard aquariums={[]} />
-        <Typography paragraph>
-          DATA GOES HERE
-        </Typography>
       </Box>
     </Box>
   );

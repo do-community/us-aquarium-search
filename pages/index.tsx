@@ -75,7 +75,7 @@ export default function Home({
         <title>United States Aquariums</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <Header />
+      {/* <Header /> */}
       <Container maxWidth="lg">
         <Box style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', flexDirection: 'column', paddingTop: '5rem' }}
           component="form"
