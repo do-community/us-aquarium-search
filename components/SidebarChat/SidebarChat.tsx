@@ -16,7 +16,7 @@ export default function PersistentDrawer() {
   const [inputValue, setInputValue] = React.useState('');
   const [messages, setMessages] = React.useState([]);
 
-  const handleInputChange = (event) => {
+  const handleInputChange = (event: any) => {
     setInputValue(event.target.value);
   };
 
@@ -48,7 +48,7 @@ export default function PersistentDrawer() {
     }
   };
 
-  const handleKeyPress = (event) => {
+  const handleKeyPress = (event: any) => {
     if (event.key === 'Enter') {
       handleSendMessage();
     }
@@ -87,7 +87,7 @@ export default function PersistentDrawer() {
         variant="outlined"
         value={inputValue}
         onChange={handleInputChange}
-        onKeyPress={handleKeyPress} // Listen for the Enter key press
+        onKeyDown={handleKeyPress} // Listen for the Enter key press
         sx={{ mb: 2 }}
       />
       <Button variant="contained" fullWidth onClick={handleSendMessage}>
@@ -100,6 +100,11 @@ export default function PersistentDrawer() {
     <Box sx={{ display: 'flex' }}>
       <AppBar position="fixed" sx={{ width: '100%' }}>
         <Toolbar>
+          {open && (
+            <Typography variant="h6" component="div" sx={{ marginRight: 2 }}>
+              Chat with Sammy!
+            </Typography>
+          )}
           <IconButton
             color="inherit"
             aria-label="open drawer"
