@@ -5,6 +5,7 @@ import Container from '@mui/material/Container';
 import Box from '@mui/material/Box';
 import Header from '../components/Header/Header';
 import AquariumCard from '../components/AquariumCard/AquariumCard';
+import SidebarChat from '../components/SidebarChat/SidebarChat';
 import TextField from '@mui/material/TextField';
 import { useState } from "react";
 import Typography from "@mui/material/Typography";
@@ -74,7 +75,6 @@ export default function Home({
         <title>United States Aquariums</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <Header />
       <Container maxWidth="lg">
         <Box style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', flexDirection: 'column', paddingTop: '5rem' }}
           component="form"
@@ -92,6 +92,7 @@ export default function Home({
 
         </Box >
         <main>
+          <SidebarChat />
           <Box display="grid" gridTemplateColumns="repeat(3, 1fr)" gap={4}>
             <AquariumCard aquariums={filteredAquariums} />
           </Box>

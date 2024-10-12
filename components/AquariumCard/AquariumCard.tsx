@@ -53,7 +53,6 @@ const AquariumCard: React.FC<AquariumProps> = ({ aquariums }) => {
   );
 };
 
-
 export default AquariumCard;
 
 
